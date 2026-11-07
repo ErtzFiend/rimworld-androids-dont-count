@@ -3,11 +3,11 @@
   <name>Androids Don't Count</name>
   <author>ertzfiend</author>
   <packageId>ertzfiend.androidsdontcount</packageId>
-  <description>Androids remain fully functional colonists (work, draft, selectable) but do not inflate colony metrics: they are excluded from the top colonist bar, raid/threat point calculations, and colony wealth (market value, worn apparel, weapons, bionics, and inventory).</description>
+  <description>Androids remain fully functional colonists, including on the colonist bar - they work, can be drafted, and appear alongside everyone else. But they do not inflate colony metrics: they are excluded from raid/threat point calculations and colony wealth (their market value, worn apparel, weapons, bionics, and inventory all count for nothing). Organic colonists are untouched.</description>
   <supportedVersions>
     <li>1.7</li>
   </supportedVersions>
-  <modVersion>1.0.1</modVersion>
+  <modVersion>1.1.0</modVersion>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

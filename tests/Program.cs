@@ -40,12 +40,6 @@ internal static class Program
         // 1. Initialize patches via static constructor
         RuntimeHelpers.RunClassConstructor(typeof(AndroidsDontCountMain).TypeHandle);
 
-        // Target 1: ColonistBar.CheckRecacheEntries
-        var cbTarget = AccessTools.Method(typeof(ColonistBar), "CheckRecacheEntries");
-        Check(cbTarget != null, "Target 1 resolves: ColonistBar.CheckRecacheEntries");
-        var cbInfo = Harmony.GetPatchInfo(cbTarget);
-        bool cbRegistered = cbInfo != null && cbInfo.Postfixes.Any(p => p.PatchMethod.DeclaringType == typeof(Patch_ColonistBar_CheckRecacheEntries));
-        Check(cbRegistered, "Target 1 registered: ColonistBar.CheckRecacheEntries postfix");
 
         // Target 2: WealthWatcher.ForceRecount
         var wwfrTarget = AccessTools.Method(typeof(WealthWatcher), nameof(WealthWatcher.ForceRecount));
@@ -178,9 +172,6 @@ internal static class Program
         bool runCaravan = Patch_Caravan_PlayerWealthForStoryteller.Prefix(null, ref caravanWealth);
         Check(!runCaravan && caravanWealth == 0f, "Caravan wealth returns 0 for null caravan");
 
-        // Logic check: Patch_ColonistBar_CheckRecacheEntries null-safe
-        Patch_ColonistBar_CheckRecacheEntries.Postfix(null);
-        Check(true, "ColonistBar CheckRecacheEntries handles null instance safely");
 
         Console.WriteLine(failures == 0 ? "ALL TESTS PASSED" : failures + " TEST(S) FAILED");
         return failures == 0 ? 0 : 1;

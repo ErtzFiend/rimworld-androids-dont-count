@@ -19,7 +19,6 @@
   <ItemGroup>
     <Compile Include="AndroidClassifier.cs" />
     <Compile Include="AndroidsDontCountMain.cs" />
-    <Compile Include="HarmonyPatches_ColonistBar.cs" />
     <Compile Include="HarmonyPatches_Wealth.cs" />
     <Compile Include="HarmonyPatches_Threat.cs" />
   </ItemGroup>
